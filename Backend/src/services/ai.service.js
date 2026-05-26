@@ -7,6 +7,7 @@ const ai = new GoogleGenAI({
 })
 
 const interviewReportSchema = z.object({
+    matchScore: z.number().describe("A score between 0 and 100 indicating how well the candidate's profile matches the job describe"),
     technicalQuestions: z.array(z.object({
         question: z.string().description("The technical question can be asked in the interview"),
         intension: z.string().description("The intension of interviewer behind asking this question"),
@@ -51,3 +52,4 @@ async function generateInterviewReport({ resume, selfDescription, jobDescription
 
 
 }
+module.exports = generateInterviewReport
