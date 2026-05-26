@@ -9,18 +9,18 @@ const ai = new GoogleGenAI({
 const interviewReportSchema = z.object({
     matchScore: z.number().describe("A score between 0 and 100 indicating how well the candidate's profile matches the job describe"),
     technicalQuestions: z.array(z.object({
-        question: z.string().description("The technical question can be asked in the interview"),
-        intension: z.string().description("The intension of interviewer behind asking this question"),
-        answer: z.string().description("How to answer this question, what points to cover,what approach to take etc.")
-    })).description("Technical questions that can be asked in the interview along with their intention and how to answer them"),
+        question: z.string().describe("The technical question can be asked in the interview"),
+        intension: z.string().describe("The intension of interviewer behind asking this question"),
+        answer: z.string().describe("How to answer this question, what points to cover,what approach to take etc.")
+    })).describe("Technical questions that can be asked in the interview along with their intention and how to answer them"),
     behaviouralQuestions:  z.array(z.object({
-        question: z.string().description("The technical question can be asked in the interview"),
-        intension: z.string().description("The intension of interviewer behind asking this question"),
-        answer: z.string().description("How to answer this question, what points to cover,what approach to take etc.")
-    })).description("Behavioural questions that can be asked in the interview along with their intention and how to answer them"),
+        question: z.string().describe("The technical question can be asked in the interview"),
+        intension: z.string().describe("The intension of interviewer behind asking this question"),
+        answer: z.string().describe("How to answer this question, what points to cover,what approach to take etc.")
+    })).describe("Behavioural questions that can be asked in the interview along with their intention and how to answer them"),
     skillGaps: z.array(z.object({
-        skill: z.string().description("The skill which the candidate is lacking"),
-        severity: z.enum(["low","medium","high"]).description("The severity of this skill gap, i.e. how important is this skill for the job and how much it can impact the candidate's chances")
+        skill: z.string().describe("The skill which the candidate is lacking"),
+        severity: z.enum(["low","medium","high"]).describe("The severity of this skill gap, i.e. how important is this skill for the job and how much it can impact the candidate's chances")
     })).describe("List of skill gaps in the candidate's profile along with their severity"),
     preparationPlan: z.array(z.object({
         day: z.number().describe("The day number in the preparation plan, starting from 1"),
